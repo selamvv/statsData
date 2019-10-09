@@ -27,6 +27,7 @@
 <h3>Create a function to get the grade from a quiz object
 </h3>
 <script>
+    
  var getGrade = function(quiz)
  {
     return quiz.grade;
@@ -40,7 +41,8 @@ report("#A1",answer)
 <div id="A2">
 <h3>Find the mean of the quiz grades for the first penguin.</h3>
 <script>
-var answer="please complete";
+  var x = classroom[0].quizes.map(getGrade)
+  var answer= d3.mean(x)  
 report("#A2",answer)    
 </script>
 </div>
@@ -48,7 +50,13 @@ report("#A2",answer)
 <div id="A3">
 <h3>Create a function to find the mean of the quiz grades for a given penguin.</h3>
 <script>
-var answer="please complete";
+    var gradegivenP = function(p)
+    {
+        var x= p.quizes.map(getGrade)
+        var answer= d3.mean(x)
+        return answer
+    }
+var answer= gradegivenP(classroom[1]);
 report("#A3",answer)    
 </script>
 </div>
@@ -56,7 +64,8 @@ report("#A3",answer)
 <div id="A4">
 <h3>Create an array of the mean quiz score of each penguins.  Use one line of "code"</h3>
 <script>
-var answer="please complete";
+   var quizemean= classroom.map(gradegivenP)
+var answer= classroom.map(gradegivenP);
 report("#A4",answer)    
 </script>
     </div>
@@ -64,7 +73,8 @@ report("#A4",answer)
 <div id="A5">
 <h3>Find the mean of all the quiz scores of the class. </h3>
 <script>
-var answer="please complete";
+    d3.mean(quizemean)
+var answer=d3.mean(quizemean);
 report("#A5",answer)    
 </script>
     </div>
